@@ -2,38 +2,33 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameManager : MonoBehaviour
-{
+public class GameManager : MonoBehaviour {
     public GameObject ballPrefab;
-    private Vector3 ballSource = new Vector3(0, 0.6f, 0);
-    private bool spacePressed = false;
+    private Vector3 ballSource = new Vector3 (0, 0.6f, 0);
+    private float maxSpeed = 50f;
 
+    private bool ballSourceActive;
     // Start is called before the first frame update
-    void Start()
-    {
-        StartCoroutine(SpawnBalls());
+    void Start() {
+        ballSourceActive = false;
+        StartCoroutine(SpawnBall());        
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        spacePressed = Input.GetKey(KeyCode.Space);
+    void Update() {
+        //Mientras se presione la espaciadora se espanean bolas
+        //a una cadencia de 10 por  segundo
+        ballSourceActive = Input.GetKey(KeyCode.Space);       
     }
 
-    IEnumerator SpawnBalls()
-    {
+    private IEnumerator SpawnBall() {
         while(true) {
-            if (spacePressed) {
-                Instantiate(ballPrefab, ballSource, Quaternion.identity);
+            if(ballSourceActive) {
+                GameObject ballGO = Instantiate(ballPrefab, ballSource, Quaternion.identity);
+                ballGO.GetComponent<Rigidbody>().AddForce(Random.insideUnitSphere * maxSpeed, ForceMode.Force);
 
-                yield return new WaitForSeconds(0.2f);
-
-                /*for (int i = 0; i < 50; i++) {
-                    Instantiate(ballPrefab, ballSource, Quaternion.identity);
-                }*/
             }
-
-            yield return new WaitUntil(() => spacePressed);
+            yield return new WaitForSeconds(0.1f);
         }
     }
 }

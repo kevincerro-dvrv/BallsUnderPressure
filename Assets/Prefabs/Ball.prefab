@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1481303491134736609}
   - component: {fileID: 2413832023441845573}
   - component: {fileID: 5869550631921248572}
-  - component: {fileID: 3009205985432785467}
+  - component: {fileID: 3228075576814938541}
   m_Layer: 0
   m_Name: Ball
   m_TagString: Untagged
@@ -92,7 +92,7 @@ SphereCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7825000090834836928}
-  m_Material: {fileID: 13400000, guid: 59eda1a8487a3d24ebb7b4db368ea436, type: 2}
+  m_Material: {fileID: 13400000, guid: 2e65aea19461c8346bd6eba79ea65a7d, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -106,7 +106,7 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!54 &3009205985432785467
+--- !u!54 &3228075576814938541
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -114,7 +114,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7825000090834836928}
   serializedVersion: 4
-  m_Mass: 1
+  m_Mass: 0.01
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -128,7 +128,7 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 1
+  m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
